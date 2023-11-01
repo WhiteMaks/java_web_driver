@@ -14,10 +14,10 @@ public class GooglePage extends BaseWebPage {
 	}
 
 	public CookieBanner getCookieBanner() {
-		return new CookieBanner(getRootElement().findElementByClassName("dbsFrd"));
+		return new CookieBanner(webDriver, getRootElement().findElementByClassName("dbsFrd"));
 	}
 
 	public SearchField getSearchField() {
-		return new SearchField(getRootElement().findElementByTagName("textarea"));
+		return new SearchField(webDriver, getRootElement().findElementByTagName("textarea"));
 	}
 }

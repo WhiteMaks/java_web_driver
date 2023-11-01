@@ -1,11 +1,16 @@
 package com.whitemaks.github.web_driver;
 
+import com.whitemaks.github.web_driver.wrappers.WebDriver;
 import com.whitemaks.github.web_driver.wrappers.WebElement;
 
+import java.util.List;
+
 public abstract class BaseWebElement {
+	protected final WebDriver webDriver;
 	protected final WebElement webElement;
 
-	protected BaseWebElement(WebElement webElement) {
+	protected BaseWebElement(WebDriver webDriver, WebElement webElement) {
+		this.webDriver = webDriver;
 		this.webElement = webElement;
 	}
 
@@ -81,5 +86,13 @@ public abstract class BaseWebElement {
 		}
 
 		return webElement.findElementByXpath(".//" + tagName + "[contains(@value, '" + name + "')]");
+	}
+
+	protected List<WebElement> findButtons() {
+		return webElement.findElementsByTagName("button");
+	}
+
+	protected List<WebElement> findInputs() {
+		return webElement.findElementsByTagName("input");
 	}
 }

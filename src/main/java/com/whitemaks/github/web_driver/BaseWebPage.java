@@ -3,11 +3,10 @@ package com.whitemaks.github.web_driver;
 import com.whitemaks.github.web_driver.wrappers.WebDriver;
 import com.whitemaks.github.web_driver.wrappers.WebElement;
 
-public abstract class BaseWebPage {
-	private final WebDriver webDriver;
+public abstract class BaseWebPage extends BaseWebElement {
 
 	protected BaseWebPage(WebDriver webDriver) {
-		this.webDriver = webDriver;
+		super(webDriver, webDriver.getRootElement());
 	}
 
 	protected WebElement getRootElement() {
