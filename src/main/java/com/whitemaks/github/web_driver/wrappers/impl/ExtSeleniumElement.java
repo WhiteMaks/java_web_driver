@@ -165,6 +165,11 @@ public class ExtSeleniumElement implements WebElement {
 	}
 
 	@Override
+	public WebElement findElementByText(String text) {
+		return findElementByXpath(".//*[contains(text(),'" + text + "')]");
+	}
+
+	@Override
 	public List<WebElement> getAllChildElements() {
 		return findElementsByXpath("./*");
 	}
@@ -192,9 +197,18 @@ public class ExtSeleniumElement implements WebElement {
 		return findElementsByXpath(".//*[contains(@class,'" + className + "')]");
 	}
 
+	@Override
+	public List<WebElement> findElementsByText(String text) {
+		return findElementsByXpath(".//*[contains(text(),'" + text + "')]");
+	}
+
 	private List<WebElement> convert(List<org.openqa.selenium.WebElement> elements) {
 		return elements.stream()
 				.map(ExtSeleniumElement::new)
 				.collect(Collectors.toList());
+	}
+
+	protected org.openqa.selenium.WebElement getBaseWebElement() {
+		return element;
 	}
 }

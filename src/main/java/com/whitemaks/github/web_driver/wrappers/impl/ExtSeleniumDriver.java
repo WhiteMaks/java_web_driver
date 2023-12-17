@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.interactions.Actions;
 
 import java.util.Collections;
 import java.util.Set;
@@ -45,6 +46,20 @@ public class ExtSeleniumDriver implements WebDriver {
 	public void executeJsScript(String script) {
 		var javascriptExecutor = (JavascriptExecutor) driver;
 		javascriptExecutor.executeScript(script);
+	}
+
+	@Override
+	public boolean contextMenu(WebElement webElement) {
+		var seleniumWebElement = ((ExtSeleniumElement) webElement).getBaseWebElement();
+
+		try {
+			new Actions(driver)
+					.contextClick(seleniumWebElement)
+					.perform();
+			return true;
+		} catch (Exception ex) {
+			return false;
+		}
 	}
 
 	@Override

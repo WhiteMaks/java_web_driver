@@ -14,6 +14,8 @@ public interface WebDriver {
 
 	void executeJsScript(String script);
 
+	boolean contextMenu(WebElement webElement);
+
 	String getCurrentUrl();
 
 	String getCurrentWindowHandle();

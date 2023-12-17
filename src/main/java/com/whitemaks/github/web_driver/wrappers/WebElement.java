@@ -40,6 +40,8 @@ public interface WebElement {
 
 	WebElement findElementByCssSelector(String cssSelector);
 
+	WebElement findElementByText(String text);
+
 	List<WebElement> getAllChildElements();
 
 	List<WebElement> findElementsByXpath(String xpath);
@@ -47,5 +49,7 @@ public interface WebElement {
 	List<WebElement> findElementsByTagName(String tagName);
 
 	List<WebElement> findElementsByClassName(String className);
+
+	List<WebElement> findElementsByText(String text);
 
 }

@@ -13,7 +13,11 @@ public abstract class BaseWebPage extends BaseWebElement {
 		return webDriver.getRootElement();
 	}
 
-	protected void refreshPage() {
+	public void refreshPage() {
 		webDriver.refresh();
+	}
+
+	public boolean contextMenuOnWebElement(WebElement webElement) {
+		return webDriver.contextMenu(webElement);
 	}
 }
